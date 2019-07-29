@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <style>
+        img {
+            display: block;
+            margin-right: 500px;
+            margin-top: :50px;
+        }
+        input{
+            width: 150px;
+        }
+        button{
+            width: 150px;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <form action = "http://127.0.0.1:5000/{{name}}" method="POST">
+            <input type= 'text' name = 'name'>
+            <input type="submit" value="Search">
+            <a href="http://127.0.0.1:5000/vr"><input type="button" value="Image Search"></a>
+
+        </form>
+    </div>
+    <p><b>Name:</b> {{name}}<img src = '{{img_url}}' align = 'right'><br clear=”left” /></p>
+    <p><b>Type: </b>{{type}} </p>
+    <p><b>HP:</b> {{hp}} </p>
+    <p><b>Attack:</b> {{atk}} </p>
+    <p><b>Sp.Atk:</b> {{satk}} </p>
+    <p></p><b>Defense:</b> {{deff}} </p>
+    <p><b>Sp.Defense:</b> {{sdef}} </p>
+    <p><b>Speed:</b> {{speed}} </p>
+</body>
+</html>
