@@ -1,18 +1,8 @@
 from flask import Flask,request, render_template,redirect,url_for
 import pandas as pd
 import requests
-from watson_developer_cloud import VisualRecognitionV3 
 import json
 import ast
-#Initialize Watson VR
-visual_recognition = VisualRecognitionV3(
-    version='2016-05-20',
-    iam_apikey='2AFlJNIvEkn44rBnlaAUUwYX_4rVNEKR8tIBQQlL-BPt'
-)
-
-visual_recognition = VisualRecognitionV3(
-    '2018-03-19',
-    iam_apikey='2AFlJNIvEkn44rBnlaAUUwYX_4rVNEKR8tIBQQlL-BPt')
 
 #Preprocessing pokedex database
 pokedex = pd.read_csv('Pokedex.csv')
@@ -27,6 +17,7 @@ col =['id', 'pokemon','type', 'species_id', 'height', 'weight', 'base_experience
 pokedex=pokedex[col]
 pokedex=pokedex.set_index('id')
 base = 'http://img.pokemondb.net/artwork/'
+
 #initialize flask
 app = Flask(__name__)
 @app.route('/<name>&<score>',methods = ['POST','GET'])

@@ -1,13 +1,9 @@
 import pandas as pd
-from watson_developer_cloud import VisualRecognitionV3 
 import sys, urllib3
 import certifi
-from PIL.ImageQt import ImageQt
 from PIL import Image
 import requests
 from PyQt5 import QtGui, QtCore, QtWidgets
-from io import BytesIO
-from flask import Flask
 
 pokedex = pd.read_csv('Pokedex.csv')
 pokedex['type'] = pokedex[pokedex.columns[6:8]].apply(lambda x: ','.join(x.dropna().astype(str)),axis=1)

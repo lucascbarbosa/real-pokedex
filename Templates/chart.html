@@ -1,7 +1,6 @@
-<table class="type-table type-table-dense">
+<table class="chart" border="1">
     <thead>
     <tr>
-    <th></th>
     <th><a class="type-icon type-normal type-cell type-abbr" href="/type/normal" title="Normal">Nor</a></th>
     <th><a class="type-icon type-fire type-cell type-abbr" href="/type/fire" title="Fire">Fir</a></th>
     <th><a class="type-icon type-water type-cell type-abbr" href="/type/water" title="Water">Wat</a></th>
@@ -79,3 +78,33 @@
     <td title="Bug → Fairy/Normal = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Fire = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td title="Bug → Fairy/Water = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Electric = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Grass = normal effectiveness" class="type-fx-cell type-fx-100"></td> <td title="Bug → Fairy/Ice = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Fighting = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td title="Bug → Fairy/Poison = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td title="Bug → Fairy/Ground = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Flying = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td title="Bug → Fairy/Psychic = normal effectiveness" class="type-fx-cell type-fx-100"></td> <td title="Bug → Fairy/Bug = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Rock = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Ghost = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td title="Bug → Fairy/Dragon = not very effective" class="type-fx-cell type-fx-50">1/2</td> <td title="Bug → Fairy/Dark = normal effectiveness" class="type-fx-cell type-fx-100"></td> <td title="Bug → Fairy/Steel = not very effective" class="type-fx-cell type-fx-25">1/4</td> <td class="type-fx-cell type-fx-null"></td> </tr>
     </tbody>
     </table>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        function conditionalFormatTable(){
+            var doc = document;
+            var table = document.getElementsByClassName("chart")[0];
+            var cells = table.querySelectorAll("td");
+            for (var i = 0; i < cells.length; i+=1) {
+                var cell = cells[i];
+                var frac = eval(cell.innerText);
+                if (frac == 0.25){
+                    cell.style.background = "rgb(200,0,0)";
+                }
+                if (frac == 0.5){
+                    cell.style.background = "rgb(255,0,0)";
+                }
+                if (frac == 2){
+                    cell.style.background = "rgb(0,200,0)";
+                }
+                if (frac == 4){
+                    cell.style.background = "rgb(0,255,0)";
+                }
+            }
+        }
+        window.onload = conditionalFormatTable();
+    </script>
