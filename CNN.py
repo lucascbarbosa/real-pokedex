@@ -100,3 +100,4 @@ if __name__ == "__main__":
     std = Study(None,None,None,None,0.3)
     std.load_dataset()
     std.model()
+
